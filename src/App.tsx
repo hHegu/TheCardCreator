@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from "styled-components"
+import { aoe, cross, diagonalCross, largeAoe, longMelee, melee, swipe } from "./abilityShapes"
+import "./App.css"
+import AbilityCard from "./components/card/AbilityCard"
+import GridPreview from "./components/GridPreview/GridPreview"
+import { ReactComponent as CardsIcon } from "./icons/cards_multi.svg"
 
-function App() {
+const AppContainer = styled.div`
+  background-color: #282c34;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+`
+
+const Header = styled.h1`
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <AppContainer>
+      <Header>
+        <CardsIcon /> The Card Creator
+      </Header>
+      <AbilityCard
+        description="This is a test card"
+        name="Test Card 2"
+        cost={2}
+        produce={3}
+      />
+      <GridPreview shape={cross}/>
+      <GridPreview shape={diagonalCross}/>
+      <GridPreview shape={aoe}/>
+      <GridPreview shape={largeAoe}/>
+      <GridPreview shape={melee}/>
+      <GridPreview shape={longMelee}/>
+      <GridPreview shape={swipe}/>
+    </AppContainer>
+  )
 }
 
-export default App;
+export default App
