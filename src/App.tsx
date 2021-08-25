@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { aoe, cross, diagonalCross, largeAoe, longMelee, melee, swipe } from "./abilityShapes"
+import { aoe, cross, diagonalCross, largeAoe, longMelee, melee, ranged, swipe } from "./abilityShapes"
 import "./App.css"
 import AbilityCard from "./components/card/AbilityCard"
 import GridPreview from "./components/GridPreview/GridPreview"
@@ -40,6 +40,7 @@ const App = () => {
       <GridPreview shape={melee}/>
       <GridPreview shape={longMelee}/>
       <GridPreview shape={swipe}/>
+      <GridPreview shape={ranged}/>
     </AppContainer>
   )
 }
