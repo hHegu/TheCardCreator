@@ -40,7 +40,7 @@ const App = () => {
         <CardsIcon /> The Card Creator
       </Header>
       <FileDrop onJSONDropped={ob => setCards([...cards, ...ob.Abilities])} />
-      <Button style={{marginBottom: '2rem'}}>Download cards as PNG</Button>
+      <Button style={{ marginBottom: "2rem" }}>Download cards as PNG</Button>
       <CardGallery cards={cards} />
     </AppContainer>
   )

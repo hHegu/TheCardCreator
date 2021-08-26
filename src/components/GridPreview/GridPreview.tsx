@@ -17,8 +17,8 @@ type GridType = {
 }
 
 const GridCell: any = styled.span`
-  width: 1mm;
-  height: 1mm;
+  width: 1.5mm;
+  height: 1.5mm;
   border-radius: 0.25mm;
   background-color: ${({ gridType }: GridCellType) => {
     if (gridType === cellTypes.hit) {
@@ -45,11 +45,16 @@ const Grid: any = styled.div`
 
 type GridPreviewType = {
   shape: number[][]
+  className?: string
 }
 
-const GridPreview = ({ shape }: GridPreviewType) => {
+const GridPreview = ({ shape, className }: GridPreviewType) => {
   return (
-    <Grid gridTemplate={shape} columnCount={shape[0].length}>
+    <Grid
+      gridTemplate={shape}
+      columnCount={shape[0].length}
+      className={className}
+    >
       {shape
         .map((row, rowIndex) =>
           row.map((column, columnIndex) => (

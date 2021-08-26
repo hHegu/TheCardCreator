@@ -16,6 +16,7 @@ const FileDropContainer: StyledComponent<
   never
 > = styled.div`
   width: 40rem;
+  max-width: 85vw;
   height: 5rem;
   border: 2px dashed ${colors.white};
   border-radius: 1rem;

@@ -33,7 +33,7 @@ const CardContainer: any = styled.div`
   @media print {
     box-shadow: none;
     border-radius: 0;
-    &:nth-child(9n+0) {
+    &:nth-child(9n + 0) {
       margin-bottom: 121px;
     }
   }
@@ -63,7 +63,8 @@ const Description = styled.div`
 
 const Footer = styled.div`
   grid-area: fo;
-  padding: 2mm 4mm;
+  padding: 0 4mm;
+  padding-bottom: 2mm;
 `
 
 const Card = ({

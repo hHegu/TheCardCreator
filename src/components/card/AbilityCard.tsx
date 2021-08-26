@@ -2,7 +2,9 @@ import { faTint } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styled from "styled-components"
 import { AbilityCardType } from "../../types/CardTypes"
+import GridPreview from "../GridPreview/GridPreview"
 import Card from "./Card"
+import { shapes } from "../../abilityShapes"
 
 const CostContainer = styled.div`
   display: flex;
@@ -21,7 +23,24 @@ const ProduceContainer = styled.div`
   width: 100%;
 `
 
-const AbilityCard = ({ name, description, cost, produce }: AbilityCardType) => {
+const DescriptionContainer = styled.div`
+  font-size: 0.6rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+`
+
+const StyledGridPreview = styled(GridPreview)`
+  margin-left: 3mm;
+`
+
+const AbilityCard = ({
+  name,
+  description,
+  cost,
+  produce,
+  shape,
+}: AbilityCardType) => {
   const costElement = (
     <CostContainer>
       {cost}
@@ -44,9 +63,16 @@ const AbilityCard = ({ name, description, cost, produce }: AbilityCardType) => {
     </ProduceContainer>
   )
 
+  const descriptionElement = (
+    <DescriptionContainer>
+      <span>{description}</span>
+      {shape && <StyledGridPreview shape={shapes[shape]} />}
+    </DescriptionContainer>
+  )
+
   return (
     <Card
-      description={description}
+      description={descriptionElement}
       topLeft={name}
       topRight={costElement}
       footer={produceElement}

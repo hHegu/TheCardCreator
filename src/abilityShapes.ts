@@ -1,52 +1,60 @@
 // misc.
 
-export const melee = [[2, 1]]
+const melee = [[2, 1]]
 
-export const longMelee = [[2, 1, 1]]
+const longMelee = [[2, 1, 1]]
 
-export const swipe = [
+const swipe = [
   [0, 1],
   [2, 1],
   [0, 1],
 ]
 
-export const ranged = [
-  [1]
-]
+const ranged = [[1]]
 
-export const diagonalSwipe = [
+const diagonalSwipe = [
   [2, 1],
-  [1, 1]
+  [1, 1],
 ]
-
 
 // 3x3
 
-export const aoe = [
+const aoe = [
   [1, 1, 1],
   [1, 2, 1],
   [1, 1, 1],
 ]
 
-export const cross = [
+const cross = [
   [0, 1, 0],
   [1, 2, 1],
   [0, 1, 0],
 ]
 
-export const diagonalCross = [
+const diagonalCross = [
   [1, 0, 1],
   [0, 2, 0],
   [1, 0, 1],
 ]
 
-
 // 5x5
 
-export const largeAoe = [
+const largeAoe = [
   [1, 1, 1, 1, 1],
   [1, 1, 1, 1, 1],
   [1, 1, 2, 1, 1],
   [1, 1, 1, 1, 1],
   [1, 1, 1, 1, 1],
 ]
+
+export const shapes: { [key: string]: any } = {
+  melee,
+  longMelee,
+  swipe,
+  ranged,
+  diagonalSwipe,
+  aoe,
+  cross,
+  diagonalCross,
+  largeAoe,
+}

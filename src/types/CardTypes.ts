@@ -7,4 +7,5 @@ export type AbilityCardType = {
   description: string | React.ReactNode | JSX.Element
   cost: number
   produce: number
+  shape?: string
 }
