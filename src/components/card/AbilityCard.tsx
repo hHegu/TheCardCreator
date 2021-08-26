@@ -1,14 +1,8 @@
 import { faTint } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styled from "styled-components"
+import { AbilityCardType } from "../../types/CardTypes"
 import Card from "./Card"
-
-type AbilityCardType = {
-  name: string | React.ReactNode | JSX.Element
-  description: string | React.ReactNode | JSX.Element
-  cost: number
-  produce: number
-}
 
 const CostContainer = styled.div`
   display: flex;

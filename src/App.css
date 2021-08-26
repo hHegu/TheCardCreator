@@ -1,3 +1,9 @@
 body {
   background-color: #282c34;
 }
+
+@media print {
+  body {
+    background-color: white;
+  }
+}

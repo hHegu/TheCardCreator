@@ -28,6 +28,15 @@ const CardContainer: any = styled.div`
     "fo fo fo fo";
   font-size: 3.5mm;
   box-shadow: 4px 4px 1px 0px rgba(0, 0, 0, 0.4);
+  border: 1px solid black;
+
+  @media print {
+    box-shadow: none;
+    border-radius: 0;
+    &:nth-child(9n+0) {
+      margin-bottom: 121px;
+    }
+  }
 `
 
 const TopLeft = styled.div`
