@@ -1,4 +1,3 @@
-import { chunk } from "lodash"
 import styled from "styled-components"
 
 enum cellTypes {
@@ -18,21 +17,21 @@ type GridType = {
 }
 
 const GridCell: any = styled.span`
-  width: 1.5mm;
-  height: 1.5mm;
-  border-radius: 0.5mm;
+  width: 1mm;
+  height: 1mm;
+  border-radius: 0.25mm;
   background-color: ${({ gridType }: GridCellType) => {
-    if (gridType == cellTypes.hit) {
+    if (gridType === cellTypes.hit) {
       return "#b13e53"
     }
-    if (gridType == cellTypes.hero) {
+    if (gridType === cellTypes.hero) {
       return "#a7f070"
     }
     return "none"
   }};
   grid-column: ${(props: GridCellType) => props.columnIndex};
   grid-row: ${(props: GridCellType) => props.rowIndex};
-  border: 1px solid black;
+  border: 0.2mm solid black;
 `
 
 const Grid: any = styled.div`
