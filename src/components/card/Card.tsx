@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import colors from "../../colors"
 
 type CardContainerType = {
   imageSize?: string
@@ -15,8 +16,8 @@ type CardType = {
 } & CardContainerType
 
 const CardContainer: any = styled.div`
-  width: 63mm;
-  height: 88mm;
+  width: 2.5in;
+  height: 3.5in;
   background: ${(props: CardContainerType) => props.backgroundColor};
   color: ${(props: CardContainerType) => props.textColor};
   border-radius: 2mm;
@@ -34,7 +35,7 @@ const CardContainer: any = styled.div`
     box-shadow: none;
     border-radius: 0;
     &:nth-child(9n + 0) {
-      margin-bottom: 121px;
+      margin-bottom: calc(1.2in - 7px);
     }
   }
 `
@@ -53,12 +54,13 @@ const TopRight = styled.div`
 
 const CardImage = styled.div`
   grid-area: im;
-  background-color: grey;
+  background-color: ${colors.mediumGrey};
 `
 
 const Description = styled.div`
   grid-area: de;
   padding: 4mm;
+  overflow: hidden;
 `
 
 const Footer = styled.div`

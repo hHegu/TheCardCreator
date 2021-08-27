@@ -1,3 +1,11 @@
+/** Value explanations
+ * 
+ * 0 = Empty
+ * 1 = Hit
+ * 2 = Character
+ * 
+ */
+
 // misc.
 
 const melee = [[2, 1]]

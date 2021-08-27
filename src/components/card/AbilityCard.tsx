@@ -25,9 +25,11 @@ const ProduceContainer = styled.div`
 
 const DescriptionContainer = styled.div`
   font-size: 0.6rem;
+  line-height: 0.9rem;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
+  height: 100%;
 `
 
 const StyledGridPreview = styled(GridPreview)`

@@ -1,4 +1,7 @@
+import { faUser, faUserAlt } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styled from "styled-components"
+import colors from "../../colors"
 
 enum cellTypes {
   empty,
@@ -17,21 +20,29 @@ type GridType = {
 }
 
 const GridCell: any = styled.span`
-  width: 1.5mm;
-  height: 1.5mm;
+  width: 1.75mm;
+  height: 1.75mm;
   border-radius: 0.25mm;
   background-color: ${({ gridType }: GridCellType) => {
     if (gridType === cellTypes.hit) {
-      return "#b13e53"
-    }
-    if (gridType === cellTypes.hero) {
-      return "#a7f070"
+      return colors.red
     }
     return "none"
   }};
   grid-column: ${(props: GridCellType) => props.columnIndex};
   grid-row: ${(props: GridCellType) => props.rowIndex};
-  border: 0.2mm solid black;
+  border: ${({ gridType }) => {
+    if (gridType === cellTypes.hit) {
+      return `1px solid ${colors.black}`
+    }
+    if (gridType === cellTypes.hero) {
+      return `1px solid transparent`
+    }
+    return `1px solid ${colors.lightGrey}`
+  }};
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 `
 
 const Grid: any = styled.div`
@@ -40,7 +51,7 @@ const Grid: any = styled.div`
     ${(props: GridType) => props.columnCount},
     auto
   );
-  gap: 0.2mm;
+  gap: 1px;
 `
 
 type GridPreviewType = {
@@ -62,7 +73,11 @@ const GridPreview = ({ shape, className }: GridPreviewType) => {
               gridType={column}
               gridColumn={columnIndex}
               gridRow={rowIndex}
-            />
+            >
+              {column === cellTypes.hero && (
+                <FontAwesomeIcon icon={faUserAlt} size="xs" color={colors.black} />
+              )}
+            </GridCell>
           ))
         )
         .flat()}

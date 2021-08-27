@@ -19,7 +19,6 @@ const CardGalleryContainer = styled.div`
   @media print {
     gap: 0;
     padding: 0;
-    margin-top: 1cm;
   }
 `
 

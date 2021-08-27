@@ -1,3 +1,5 @@
+import { faDownload } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useState } from "react"
 import styled from "styled-components"
 import "./App.css"
@@ -33,7 +35,7 @@ const Header = styled.h1`
 const App = () => {
   const [cards, setCards] = useState<AbilityCardType[]>([])
 
-  // Prevent browser from opening dragged file 
+  // Prevent browser from opening dragged file
   // in a new tab if user accidentally misses FileDrop area
   const preventDefault = (e: any) => {
     e.preventDefault()
@@ -45,7 +47,12 @@ const App = () => {
         <CardsIcon /> The Card Creator
       </Header>
       <FileDrop onJSONDropped={ob => setCards([...cards, ...ob.Abilities])} />
-      {cards.length > 0 && <Button style={{ marginBottom: "2rem" }}>Download cards as PNG</Button>}
+      {cards.length > 0 && (
+        <Button style={{ marginBottom: "2rem" }}>
+          Download cards as PNG
+          <FontAwesomeIcon icon={faDownload} style={{ marginLeft: "0.5rem" }} />
+        </Button>
+      )}
       <CardGallery cards={cards} />
     </AppContainer>
   )

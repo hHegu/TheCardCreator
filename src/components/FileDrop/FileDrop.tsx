@@ -84,6 +84,7 @@ const FileDrop = ({
       onDrop={onDrop}
       onDragOver={onDragOver}
       onDragExit={onDragExit}
+      onDragLeave={onDragExit}
       dragged={dragged}
     >
       Drop JSON file(s) here
