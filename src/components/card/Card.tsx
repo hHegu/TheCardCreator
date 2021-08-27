@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import colors from "../../colors"
+import styled from 'styled-components'
+import colors from '../../colors'
 
 type CardContainerType = {
   imageSize?: string
@@ -23,10 +23,10 @@ const CardContainer: any = styled.div`
   border-radius: 2mm;
   display: grid;
   grid-template:
-    "tl tl tr tr"
-    "im im im im" ${(props: CardContainerType) => props.imageSize}
-    "de de de de" 1fr
-    "fo fo fo fo";
+    'tl tl tr tr'
+    'im im im im' ${(props: CardContainerType) => props.imageSize}
+    'de de de de' 1fr
+    'fo fo fo fo';
   font-size: 3.5mm;
   box-shadow: 4px 4px 1px 0px rgba(0, 0, 0, 0.4);
   border: 1px solid black;
@@ -70,9 +70,9 @@ const Footer = styled.div`
 `
 
 const Card = ({
-  imageSize = "4cm",
-  backgroundColor = "white",
-  textColor = "black",
+  imageSize = '4cm',
+  backgroundColor = 'white',
+  textColor = 'black',
   topLeft,
   topRight,
   image,

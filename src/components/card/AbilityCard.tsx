@@ -1,10 +1,10 @@
-import { faTint } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import styled from "styled-components"
-import { AbilityCardType } from "../../types/CardTypes"
-import GridPreview from "../GridPreview/GridPreview"
-import Card from "./Card"
-import { shapes } from "../../abilityShapes"
+import { faTint } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import styled from 'styled-components'
+import { AbilityCardType } from '../../types/CardTypes'
+import GridPreview from '../GridPreview/GridPreview'
+import Card from './Card'
+import { shapes } from '../../abilityShapes'
 
 const CostContainer = styled.div`
   display: flex;

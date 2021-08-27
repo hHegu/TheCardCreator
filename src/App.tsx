@@ -1,14 +1,14 @@
-import { faDownload } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useState } from "react"
-import styled from "styled-components"
-import "./App.css"
-import colors from "./colors"
-import Button from "./components/Button/Button"
-import CardGallery from "./components/CardGallery/CardGallery"
-import FileDrop from "./components/FileDrop/FileDrop"
-import { ReactComponent as CardsIcon } from "./icons/cards_multi.svg"
-import { AbilityCardType } from "./types/CardTypes"
+import { faDownload } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useState } from 'react'
+import styled from 'styled-components'
+import './App.css'
+import colors from './colors'
+import Button from './components/Button/Button'
+import CardGallery from './components/CardGallery/CardGallery'
+import FileDrop from './components/FileDrop/FileDrop'
+import { ReactComponent as CardsIcon } from './icons/cards_multi.svg'
+import { AbilityCardType } from './types/CardTypes'
 
 const AppContainer = styled.div`
   display: flex;
@@ -48,9 +48,9 @@ const App = () => {
       </Header>
       <FileDrop onJSONDropped={ob => setCards([...cards, ...ob.Abilities])} />
       {cards.length > 0 && (
-        <Button style={{ marginBottom: "2rem" }}>
+        <Button style={{ marginBottom: '2rem' }}>
           Download cards as PNG
-          <FontAwesomeIcon icon={faDownload} style={{ marginLeft: "0.5rem" }} />
+          <FontAwesomeIcon icon={faDownload} style={{ marginLeft: '0.5rem' }} />
         </Button>
       )}
       <CardGallery cards={cards} />

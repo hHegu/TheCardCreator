@@ -1,7 +1,7 @@
-import { faUser, faUserAlt } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import styled from "styled-components"
-import colors from "../../colors"
+import { faUser, faUserAlt } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import styled from 'styled-components'
+import colors from '../../colors'
 
 enum cellTypes {
   empty,
@@ -27,7 +27,7 @@ const GridCell: any = styled.span`
     if (gridType === cellTypes.hit) {
       return colors.red
     }
-    return "none"
+    return 'none'
   }};
   grid-column: ${(props: GridCellType) => props.columnIndex};
   grid-row: ${(props: GridCellType) => props.rowIndex};
@@ -75,7 +75,11 @@ const GridPreview = ({ shape, className }: GridPreviewType) => {
               gridRow={rowIndex}
             >
               {column === cellTypes.hero && (
-                <FontAwesomeIcon icon={faUserAlt} size="xs" color={colors.black} />
+                <FontAwesomeIcon
+                  icon={faUserAlt}
+                  size="xs"
+                  color={colors.black}
+                />
               )}
             </GridCell>
           ))

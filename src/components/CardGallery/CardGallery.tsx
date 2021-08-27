@@ -1,6 +1,6 @@
-import styled from "styled-components"
-import { AbilityCardType } from "../../types/CardTypes"
-import AbilityCard from "../card/AbilityCard"
+import styled from 'styled-components'
+import { AbilityCardType } from '../../types/CardTypes'
+import AbilityCard from '../card/AbilityCard'
 
 type CardGalleryType = {
   cards: AbilityCardType[]

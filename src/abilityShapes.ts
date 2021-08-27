@@ -1,9 +1,9 @@
 /** Value explanations
- * 
+ *
  * 0 = Empty
  * 1 = Hit
  * 2 = Character
- * 
+ *
  */
 
 // misc.
