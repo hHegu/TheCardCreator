@@ -9,7 +9,6 @@ import { ReactComponent as CardsIcon } from "./icons/cards_multi.svg"
 import { AbilityCardType } from "./types/CardTypes"
 
 const AppContainer = styled.div`
-  background-color: ${colors.backgroundBlue};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,13 +33,19 @@ const Header = styled.h1`
 const App = () => {
   const [cards, setCards] = useState<AbilityCardType[]>([])
 
+  // Prevent browser from opening dragged file 
+  // in a new tab if user accidentally misses FileDrop area
+  const preventDefault = (e: any) => {
+    e.preventDefault()
+  }
+
   return (
-    <AppContainer>
+    <AppContainer onDrop={preventDefault} onDragOver={preventDefault}>
       <Header>
         <CardsIcon /> The Card Creator
       </Header>
       <FileDrop onJSONDropped={ob => setCards([...cards, ...ob.Abilities])} />
-      <Button style={{ marginBottom: "2rem" }}>Download cards as PNG</Button>
+      {cards.length > 0 && <Button style={{ marginBottom: "2rem" }}>Download cards as PNG</Button>}
       <CardGallery cards={cards} />
     </AppContainer>
   )

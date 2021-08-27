@@ -1,4 +1,4 @@
-import { faFileImport, faUpload } from "@fortawesome/free-solid-svg-icons"
+import { faFileImport } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useState } from "react"
 import styled, { StyledComponent } from "styled-components"
@@ -15,9 +15,9 @@ const FileDropContainer: StyledComponent<
   FileDropContainerType,
   never
 > = styled.div`
-  width: 40rem;
+  width: 50rem;
   max-width: 85vw;
-  height: 5rem;
+  height: 7rem;
   border: 2px dashed ${colors.white};
   border-radius: 1rem;
   display: flex;
@@ -86,7 +86,7 @@ const FileDrop = ({
       onDragExit={onDragExit}
       dragged={dragged}
     >
-      Drop JSON file here
+      Drop JSON file(s) here
       <FontAwesomeIcon icon={faFileImport} style={{ paddingLeft: "0.5rem" }} />
     </FileDropContainer>
   )
