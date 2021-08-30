@@ -1,6 +1,6 @@
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import styled from 'styled-components'
 import './App.css'
 import colors from './colors'
@@ -9,6 +9,7 @@ import CardGallery from './components/CardGallery/CardGallery'
 import FileDrop from './components/FileDrop/FileDrop'
 import { ReactComponent as CardsIcon } from './icons/cards_multi.svg'
 import { AbilityCardType } from './types/CardTypes'
+import { toPng } from 'html-to-image'
 
 const AppContainer = styled.div`
   display: flex;
@@ -34,11 +35,25 @@ const Header = styled.h1`
 
 const App = () => {
   const [cards, setCards] = useState<AbilityCardType[]>([])
+  const galleryRef = useRef<HTMLDivElement>(null)
 
   // Prevent browser from opening dragged file
   // in a new tab if user accidentally misses FileDrop area
   const preventDefault = (e: any) => {
     e.preventDefault()
+  }
+
+  const convertHtmlToImage = () => {
+    if (galleryRef.current) {
+      toPng(galleryRef.current).then(dataUrl => {
+        var a = document.createElement('a');
+        a.href = dataUrl;
+        a.download = "output.png";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      })
+    }
   }
 
   return (
@@ -48,12 +63,12 @@ const App = () => {
       </Header>
       <FileDrop onJSONDropped={ob => setCards([...cards, ...ob.Abilities])} />
       {cards.length > 0 && (
-        <Button style={{ marginBottom: '2rem' }}>
+        <Button style={{ marginBottom: '2rem' }} onClick={convertHtmlToImage}>
           Download cards as PNG
           <FontAwesomeIcon icon={faDownload} style={{ marginLeft: '0.5rem' }} />
         </Button>
       )}
-      <CardGallery cards={cards} />
+      <CardGallery cards={cards} ref={galleryRef} />
     </AppContainer>
   )
 }
