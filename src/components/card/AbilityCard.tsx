@@ -42,7 +42,8 @@ const AbilityCard = ({
   cost,
   produce,
   shape,
-}: AbilityCardType) => {
+  className,
+}: AbilityCardType & { className?: string }) => {
   const costElement = (
     <CostContainer>
       {cost}
@@ -78,6 +79,7 @@ const AbilityCard = ({
       topLeft={name}
       topRight={costElement}
       footer={produceElement}
+      className={className}
     />
   )
 }

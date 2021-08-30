@@ -13,6 +13,7 @@ type CardType = {
   image?: string
   description?: React.ReactNode | string | JSX.Element
   footer?: React.ReactNode | string | JSX.Element
+  className?: string
 } & CardContainerType
 
 const CardContainer: any = styled.div`
@@ -37,6 +38,11 @@ const CardContainer: any = styled.div`
     &:nth-child(9n + 0) {
       margin-bottom: calc(1.2in - 7px);
     }
+  }
+
+  &.downloadable {
+    box-shadow: none;
+    border-radius: 0;
   }
 `
 
@@ -78,11 +84,13 @@ const Card = ({
   image,
   description,
   footer,
+  className,
 }: CardType) => (
   <CardContainer
     imageSize={imageSize}
     backgroundColor={backgroundColor}
     textColor={textColor}
+    className={className}
   >
     <TopLeft>{topLeft}</TopLeft>
     <TopRight>{topRight}</TopRight>

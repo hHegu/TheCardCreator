@@ -9,7 +9,7 @@ import CardGallery from './components/CardGallery/CardGallery'
 import FileDrop from './components/FileDrop/FileDrop'
 import { ReactComponent as CardsIcon } from './icons/cards_multi.svg'
 import { AbilityCardType } from './types/CardTypes'
-import { toPng } from 'html-to-image'
+import { toJpeg } from 'html-to-image'
 
 const AppContainer = styled.div`
   display: flex;
@@ -35,6 +35,7 @@ const Header = styled.h1`
 
 const App = () => {
   const [cards, setCards] = useState<AbilityCardType[]>([])
+  const [downloadableStyles, setDownloadableStyles] = useState(true)
   const galleryRef = useRef<HTMLDivElement>(null)
 
   // Prevent browser from opening dragged file
@@ -44,16 +45,21 @@ const App = () => {
   }
 
   const convertHtmlToImage = () => {
-    if (galleryRef.current) {
-      toPng(galleryRef.current).then(dataUrl => {
-        var a = document.createElement('a');
-        a.href = dataUrl;
-        a.download = "output.png";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      })
-    }
+    setDownloadableStyles(true)
+
+    setTimeout(() => {
+      if (galleryRef.current) {
+        toJpeg(galleryRef.current).then(dataUrl => {
+          var a = document.createElement('a')
+          a.href = dataUrl
+          a.download = 'output.png'
+          document.body.appendChild(a)
+          a.click()
+          document.body.removeChild(a)
+          setDownloadableStyles(false)
+        })
+      }
+    }, 2)
   }
 
   return (
@@ -68,7 +74,11 @@ const App = () => {
           <FontAwesomeIcon icon={faDownload} style={{ marginLeft: '0.5rem' }} />
         </Button>
       )}
-      <CardGallery cards={cards} ref={galleryRef} />
+      <CardGallery
+        cards={cards}
+        ref={galleryRef}
+        className={downloadableStyles ? 'downloadable' : ''}
+      />
     </AppContainer>
   )
 }

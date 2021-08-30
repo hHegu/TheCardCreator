@@ -5,6 +5,7 @@ import AbilityCard from '../card/AbilityCard'
 
 type CardGalleryType = {
   cards: AbilityCardType[]
+  className?: string
 }
 
 type Ref = HTMLDivElement
@@ -23,20 +24,31 @@ const CardGalleryContainer = styled.div`
     gap: 0;
     padding: 0;
   }
+
+  &.downloadable {
+    gap: 0;
+    padding: 0;
+    max-width: 2420px;
+    width: 2420px;
+    min-width: 2420px;
+  }
 `
 
-const CardGallery = React.forwardRef<Ref, CardGalleryType>(({ cards }, ref) => (
-  <CardGalleryContainer ref={ref}>
-    {cards.map(({ name, cost, description, produce, shape }) => (
-      <AbilityCard
-        name={name}
-        cost={cost}
-        produce={produce}
-        description={description}
-        shape={shape}
-      />
-    ))}
-  </CardGalleryContainer>
-))
+const CardGallery = React.forwardRef<Ref, CardGalleryType>(
+  ({ cards, className }, ref) => (
+    <CardGalleryContainer ref={ref} className={className}>
+      {cards.map(({ name, cost, description, produce, shape }) => (
+        <AbilityCard
+          name={name}
+          cost={cost}
+          produce={produce}
+          description={description}
+          shape={shape}
+          className={className}
+        />
+      ))}
+    </CardGalleryContainer>
+  )
+)
 
 export default CardGallery
